@@ -1,0 +1,36 @@
+@model Backend5.Models.WardStaff
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details of @ViewBag.WardStaff.Ward.Name</h2>
+
+<div>
+    <h4>WardStaff</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Position)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Position)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ward)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Ward.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-wardId="@ViewBag.WardStaff.WardId" asp-route-wardStaffId="@ViewBag.WardStaff.WardStaffId">Edit</a> |
+    <a asp-action="Index" asp-route-wardId="@ViewBag.WardStaff.WardId">Back to List</a>
+</div>

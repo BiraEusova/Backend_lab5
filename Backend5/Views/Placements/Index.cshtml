@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Backend5.Models.Placement>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Placements of @ViewBag.Ward.Name</h2>
+
+<p>
+    <a asp-action="Create" asp-route-wardId="@ViewBag.Ward.Id">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Bed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patient)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patient.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { wardId = item.WardId, patientId = item.PatientId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
